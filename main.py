@@ -4,11 +4,11 @@ from pygame.locals import *
 
 game_title = "Pacman Multiplayer"
 flag_game_running = True
-fps_limit = 120
+fps_limit = 60
 
 player_pos_x, player_pos_y = 50, 50
 player_velocity_x, player_velocity_y = 0,0
-player_max_velocity = 50
+player_max_velocity = 100
 
 window = pygame.display.set_mode((600, 600))
 pygame.display.set_caption(game_title)
@@ -29,7 +29,7 @@ while flag_game_running:
         if event.type == pygame.QUIT:
             flag_game_running = False
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_A and player_velocity_x >= 0:
+            if event.key == pygame.K_LEFT and player_velocity_x >= 0:
                 player_velocity_x = -player_max_velocity
                 player_velocity_y = 0
             if event.key == pygame.K_RIGHT and player_velocity_x <= 0:
